@@ -37,8 +37,8 @@ if(isset($_POST['submit']))
           $errors['password']='Password is required';
           
       } 
-
-     $sql="SELECT id FROM users WHERE email='$email' and passwords='$password' ";
+      $passwordss=md5($password);
+     $sql="SELECT id FROM users WHERE email='$email' and passwords='$passwordss' ";
      //getting result
      $result=mysqli_query($conn,$sql);
      //fetching results rows in array
