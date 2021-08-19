@@ -94,6 +94,7 @@ if(isset($_POST['submit']))
     <title>Registered Users</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <link rel="stylesheet" href="Sidebar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="icon" href="../img/icon.png" type="image/png">
 </head>
 <body style="background-color:white !important">   
@@ -107,14 +108,14 @@ if(isset($_POST['submit']))
                     <!--<p><img src="../img/icon.png" alt="Logo" width="150" height="150" /></p> -->
                   </div>
                   <br> <br> <br>
-                  <ul class="nav flex-column dash-nav " style="background-color:green;border-radius:12px">
-                    <li class="nav-item"><a href="dash1.php" class="nav-link">Dashboard</a></li>
-                    <li class="nav-item"><a href="registered.php" class="nav-link">Registered Users</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link active">Add Items</a></li>
-                    <li class="nav-item"><a href="stock.php" class="nav-link">Stock</a></li>
-                    <li class="nav-item"><a href="additem.php" class="nav-link">Sales</a></li>
-                    <li class="nav-item"><a href="#"class="nav-link ">Messages</a></li>
-                    <li class="nav-item ml-3"><button type="button" href="../index.php" class="p-3 mb-2 bg-primary text-white"><a href="../index.php" class="p-3 mb-2 bg-primary text-white">Logout</a></button></li>
+                  <ul class="nav flex-column dash-nav" style="border-radius:12px">
+                  <li class="nav-item"><a href="home.php" class="nav-link"> <i class="fa fa-home"></i>User Home</a></li>
+                    <li class="nav-item"><a href="registered.php" class="nav-link active"> <i class="fa fa-user"></i>Registered Users</a></li>
+                    <li class="nav-item"><a href="additems.php" class="nav-link"> <i class="fa fa-upload" > </i>Add Items</a></li>
+                    <li class="nav-item"><a href="stock.php" class="nav-link"> <i class="fa fa-database" > </i>Stock</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link"><i class="fa fa-check"></i> Sales</a></li>
+                    <li class="nav-item"><a href="#"class="nav-link "> <i class="fa fa-comment"></i> Messages</a></li>
+                    <li class="nav-item ml-3"><button type="button" href="logout.php"><a href="logout.php" >Logout</a></button></li>
                   </ul>
                 </div>
               </nav>
