@@ -1,3 +1,10 @@
+<?php 
+session_start ();
+if(!isset($_SESSION["login"]))
+	header("location:login.php");
+
+
+?>
 <?php
 include 'connection.php';
 
@@ -6,11 +13,19 @@ include 'connection.php';
 //insert
 if(isset($_POST['submit']))
 {    
-     //$email = $_POST['email'];
+     $email=$_SESSION["id"];
      $message=$_POST['messages'];
+     $sql="SELECT * FROM users WHERE email=\"$email\"";
+     $result=$conn->query($sql)or trigger_error($conn->error);
+     while ($row = $result->fetch_assoc()) {
+             $fname=$row['fname'];
+             $lname=$row['lname'];
+             $emails=$row['email'];
+             $id=$row['id'];
+       }
 
-     $sql = "INSERT INTO contact_us (messages)
-     VALUES ('$message')";
+     $sql = "INSERT INTO contact_us (id,fname,lname,email,messages)
+     VALUES ('$id','$fname','$lname','$email','$message')";
      if (mysqli_query($conn, $sql)) {
        // echo "Your account has been created successfully !";
      } else {
@@ -40,22 +55,22 @@ if(isset($_POST['submit']))
 </head>
 <body style="background-color: white;">
     <div class="topnav">
-    <nav style="font-size: xx-large;">
-        <ul class="text-alg" style="background-color: rgb(14, 59, 80);">
-            <input type="text" placeholder="Search...">
-            <a href="Home.php">Home</a>
-            <a  href="product.php">Products</a>
-            <a  href="#">Profile</a>
-            <a href="register.php">Sign_Up</a>
-                     <a href="Login.php">Login</a>
-                
-    </ul>
-    </nav>
+    <?php include("topnav.php"); ?>
 </div>
 <div class="login" style="border-radius: 100px;display: block;">
     <form class="frm" action="sms.php" method="POST">
         <br/> </br>
-        Full Names: <input type="text" name="name">
+        <?php
+          /*  $email=$_SESSION["id"];
+            $sql="SELECT * FROM users WHERE email=\"$email\"";
+            $result=$conn->query($sql)or trigger_error($conn->error);
+            while ($row = $result->fetch_assoc()) {
+                    $fname=$row['fname'];
+                    $lname=$row['lname'];
+                    $emails=$row['email'];
+              }
+           */ ?>
+        Full Names: <?php echo $fname." ".$lname;?> 
         <br/> </br>
         Message: <textarea name="messages"style="width:240px;height:100px;border-radius:12px" ></textarea>
         <input class="subm" style="height: 12%;width: 15%;" type="submit" name="submit" value="SEND"onclick="msg()"onmouseover="mousover1(this)" onmouseout="mousout1(this)" >
