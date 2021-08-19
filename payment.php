@@ -27,17 +27,7 @@ include 'connection.php';
 </head>
 <body class="head" >
     <div class="topnav" style="position:fixed;">
-        <nav style="font-size: xx-large;">
-            <ul class="text-alg" style="background-color: rgb(14, 59, 80);">
-                <input style="width: 20%;" type="text" placeholder="Search...">
-                <a href="Home.php">Home</a>
-                <a  href="product.php">Products</a>
-                <a  href="#">Profile</a>
-                <a href="register.php">Sign_Up</a>
-                         <a href="logout.php">Logout</a>
-                    
-        </ul>
-        </nav>
+    <?php include("topnav.php"); ?>
     </div>
 <h2 style="margin-top: 120px;">Payment Form</h2>
 <div class="row">
@@ -164,7 +154,7 @@ if(isset($_POST['submit']))
 
 
  */?>
-<input type="submit" value="Confirm Payment" class="btn"> <br/><br/><br/><br/><br/><br/>
+<input type="submit" value="Confirm Your Order" class="btn"> <br/><br/><br/><br/><br/><br/>
 <?php include("footer.php"); ?>
 </body>
 </html>
