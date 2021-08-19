@@ -1,11 +1,9 @@
-
 <?php
 include 'connection.php';
 
 ?>
 <?php
-$sql='SELECT id,fname,lname,email,sex,age,created_at FROM  users';
-
+$sql='SELECT *FROM  contact_us';
 //$sql= mysql_query("SELECT id,fname,lname,email,sex,age,created_at FROM  users", $conn);
 //query for result
 $result=mysqli_query($conn,$sql);
@@ -13,25 +11,7 @@ $result=mysqli_query($conn,$sql);
 $dsply=mysqli_fetch_all($result,MYSQLI_ASSOC);
 //print_r($login);
 
-/* foreach($dsply as $dsply) { //the 1st login is for table name 
-    
-echo htmlspecialchars($dsply['id']); //login is that varialble used to fetch data 
-echo "<br>";
- echo htmlspecialchars($dsply['fname']); 
- echo "<br>";
- echo htmlspecialchars($dsply['lname']); 
- echo "<br>";
- echo htmlspecialchars($dsply['email']); 
- echo "<br>";
- echo htmlspecialchars($dsply['sex']); 
- echo "<br>";
- echo htmlspecialchars($dsply['age']); 
- echo "<br>";
- echo htmlspecialchars($dsply['created_at']);
-    
- }  */
-?>
-
+ ?>
 
 
 
@@ -45,6 +25,7 @@ echo "<br>";
     <title>Admin Dasboard</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <link rel="stylesheet" href="Sidebar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
    <!-- <link rel="icon" href="../img/icon.png" type="image/png"> -->
 </head>
 <body style="background-color:white !important">   
@@ -58,14 +39,15 @@ echo "<br>";
                     <p> <!--<img src="../img/icon.png" alt="Logo" width="150" height="150" /> --></p>
                   </div>
                   <br> <br> <br>
-                  <ul class="nav flex-column dash-nav" style="background-color:green;border-radius:12px">
-                    <li class="nav-item"><a href="#" class="nav-link active">Dashboard</a></li>
-                    <li class="nav-item"><a href="registered.php" class="nav-link">Registered Users</a></li>
-                    <li class="nav-item"><a href="additems.php" class="nav-link">Add Items</a></li>
-                    <li class="nav-item"><a href="stock.php" class="nav-link">Stock</a></li>
-                    <li class="nav-item"><a href="additems.php" class="nav-link">Sales</a></li>
-                    <li class="nav-item"><a href="#"class="nav-link ">Messages</a></li>
-                    <li class="nav-item ml-3"><button type="button" href="../index.php" class="p-3 mb-2 bg-primary text-white"><a href="../index.php" class="p-3 mb-2 bg-primary text-white">Logout</a></button></li>
+                  <ul class="nav flex-column dash-nav" style="border-radius:12px">
+                    <li class="nav-item"><a href="home.php" class="nav-link"> <i class="fa fa-home"></i>User Home</a></li>
+                    <li class="nav-item"><a href="registered.php" class="nav-link active"> <i class="fa fa-user"></i>Registered Users</a></li>
+                    <li class="nav-item"><a href="additems.php" class="nav-link"> <i class="fa fa-upload" > </i>Add Items</a></li>
+                    <li class="nav-item"><a href="stock.php" class="nav-link"> <i class="fa fa-database" > </i>Stock</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link"><i class="fa fa-check"></i> Sales</a></li>
+                    <li class="nav-item"><a href="#"class="nav-link "> <i class="fa fa-setting"></i> Settings</a></li>
+                    <li class="nav-item"><a href="#"class="nav-link "> <i class="fa fa-comment"></i> Messages</a></li>
+                    <li class="nav-item ml-3"><button type="button" href="login.php"><a href="login.php" >Logout</a></button></li>
                   </ul>
                 </div>
               </nav>
@@ -74,6 +56,42 @@ echo "<br>";
             <h2 class=" font-weight-bold mt-4" style="font-size: 18">
                Here are the messages From Users
               </h2>
+              <div class="container-fluid mt-5">
+                <div class="mt-5">
+                    <div class="table-responsive">
+                      <table class="table table-striped">
+                        <thead>
+                          <tr>
+                          <th scope="col">Message ID</th>
+                            <th scope="col">Sender ID</th>
+                            <th scope="col">First Name</th>
+                            <th scope="col">Last Nmae</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Messages</th>
+                            <th scope="col">Received At</th>
+                            <th scope="col" colspan="3">Action</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                        <?php foreach($dsply as $dsply): ?>
+                            <tr>
+                              <td><?php echo htmlspecialchars($dsply['msg_id']); ?> </td>
+                              <td><?php echo htmlspecialchars($dsply['id']); ?> </td>
+                              <td><?php echo htmlspecialchars($dsply['fname']); ?> </td>
+                              <td><?php echo htmlspecialchars($dsply['lname']); ?> </td>
+                              <td><?php echo htmlspecialchars($dsply['email']); ?> </td>
+                              <td><?php echo htmlspecialchars($dsply['messages']); ?> </td>
+                              <td><?php echo htmlspecialchars($dsply['received_at']); ?> </td>
+                              <td><a href="view.php?id=<?php echo $dsply['id']; ?>">View</a></td>
+                              <td><a href="registered.php?id=<?php echo $dsply['id']; ?>">Update</a></td>
+                              <td><a href="deleteuser.php?id=<?php echo $dsply['id']; ?>">Delete</a></td>
+                            </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+              </div>
             </main>
           </div>
         </div>
