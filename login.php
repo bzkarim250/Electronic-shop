@@ -60,7 +60,13 @@ if(isset($_POST['submit']))
             //no errors
             $_SESSION["login"]="success";
             $_SESSION["id"]=$email;
+            if($email=='bzkarim250@gmail.com')
+            {
+                header('Location:dash1.php');
+            }
+            else{
               header('Location:home.php');
+            }
           }
         }
         else{
@@ -72,6 +78,7 @@ if(isset($_POST['submit']))
 
 ?>
 <?php include("topnav.php"); ?>
+ 
 <div class="login" style="border-radius: 100px;display: block;">
     <form class="frm" action="login.php" method="POST">
         Email:<br/><input type="text" name="email" value="<?php echo $email; ?>"  onmouseover="mousover(this)" onmouseout="mousout(this)"> <br/><br/>
@@ -80,14 +87,14 @@ if(isset($_POST['submit']))
        <p style="color:red"><?php echo  htmlspecialchars($errors['password']);  ?> </p>
        <p style="color:red"><?php echo  htmlspecialchars($errors['incorrect']);  ?> </p>
         <input class="subm" style="height: 12%;width: 15%;" type="submit" name="submit" value="Login"onclick="submt()"onmouseover="mousover1(this)" onmouseout="mousout1(this)" >
-<div style="border-radius: 100px;">
+<div style="border-radius: 100px;"> <p style="color:rgb(14, 59, 80)">Forgot password?</p>
 <p style="color:rgb(14, 59, 80)">You don't have an account?</p>
 <a style="padding: 5px;color:rgb(14, 59, 80); background-color:green;width: 25%;border-radius: 50px; color:black;text-decoration: none;" href="register.php" onmouseover="mousover1(this)" onmouseout="mousout1(this)">Register</a>
 <br/> <br/>
 </div>
 </form>
 </div>
-
+<br> <br> <br> <br> <br>
 <?php include("footer.php"); ?>
 </body>
 </html>
