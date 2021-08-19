@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 16, 2021 at 10:11 PM
+-- Generation Time: Aug 20, 2021 at 12:23 AM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 8.0.7
 
@@ -30,11 +30,19 @@ SET time_zone = "+00:00";
 CREATE TABLE `contact_us` (
   `msg_id` int(11) NOT NULL,
   `id` int(11) NOT NULL,
-  `names` varchar(255) NOT NULL,
+  `fname` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `messages` varchar(255) NOT NULL,
-  `received_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `received_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `lname` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `contact_us`
+--
+
+INSERT INTO `contact_us` (`msg_id`, `id`, `fname`, `email`, `messages`, `received_at`, `lname`) VALUES
+(10, 14, 'Kevin', 'manzi@gmail.com', 'hey , Huye we need other brands like tecno. thanks', '2021-08-19 21:51:21', 'Manzi');
 
 -- --------------------------------------------------------
 
@@ -114,9 +122,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `fname`, `lname`, `email`, `passwords`, `sex`, `age`, `created_at`) VALUES
-(1, 'Bazambanza', 'Abdoulkalim', 'bzkarim250@gmail.com', '1234', 'Male', 19, '2021-07-31 22:14:24'),
-(2, 'Yubahwe', 'Chris', 'kayiganwa04@gmail.com', '1234', 'Male', 25, '2021-07-31 22:16:41'),
-(6, 'Ruhuka', 'Ines', 'rukundo@gmail.com', '1234', 'Female', 23, '2021-08-03 08:04:30');
+(14, 'Kevin', 'Manzi', 'manzi@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', 'Male', 28, '2021-08-19 21:10:04'),
+(15, 'Bazambanza', 'Abdoulkalim', 'bzkarim250@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', 'Male', 25, '2021-08-19 22:06:50'),
+(16, 'Yubahwe', 'Chris', 'chris@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', 'Male', 31, '2021-08-19 22:07:25');
 
 -- --------------------------------------------------------
 
@@ -176,7 +184,7 @@ ALTER TABLE `user_order_product`
 -- AUTO_INCREMENT for table `contact_us`
 --
 ALTER TABLE `contact_us`
-  MODIFY `msg_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `msg_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `orderr`
@@ -194,7 +202,7 @@ ALTER TABLE `product`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- Constraints for dumped tables
