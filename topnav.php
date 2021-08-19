@@ -55,6 +55,20 @@ if(!isset($_SESSION["login"]))
                      }
                                           ?>
                      <a  href="sms.php">Contact US</a>
+
+                     <?php //hiding signup if user is logged in
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+if(isset($_SESSION["login"]))
+{
+
+?>
+
+                     <a href="logout.php">Logout</a>
+                     <?php
+                     }
+                                          ?>
                 
     </ul>
     </nav>
