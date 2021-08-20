@@ -63,8 +63,9 @@ echo "<br>";
                   <li class="nav-item"><a href="home.php" class="nav-link"> <i class="fa fa-home"></i>User Home</a></li>
                     <li class="nav-item"><a href="registered.php" class="nav-link active"> <i class="fa fa-user"></i>Registered Users</a></li>
                     <li class="nav-item"><a href="additems.php" class="nav-link"> <i class="fa fa-upload" > </i>Add Items</a></li>
-                    <li class="nav-item"><a href="stock.php" class="nav-link"> <i class="fa fa-database" > </i>Stock</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link"><i class="fa fa-check"></i> Sales</a></li>
+                    <li class="nav-item"><a href="stock.php" class="nav-link"> <i class="fa fa-database" > </i><b>Stock</b></a></li>
+                    <li class="nav-item"><a href="sales.php" class="nav-link"><i class="fa fa-check"></i> Sales</a></li>
+                    <li class="nav-item"><a href="#"class="nav-link "> <i class="	fa fa-cog"></i> Settings</a></li>
                     <li class="nav-item"><a href="#"class="nav-link "> <i class="fa fa-comment"></i> Messages</a></li>
                     <li class="nav-item ml-3"><button type="button" href="logout.php"><a href="logout.php" >Logout</a></button></li>
                   </ul>

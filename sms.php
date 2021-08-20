@@ -32,7 +32,7 @@ if(isset($_POST['submit']))
         echo "Error: " . $sql . ":-" . mysqli_error($conn);
      }
       //closing connection
-     mysqli_close($conn);
+    // mysqli_close($conn);
     }
 
 
@@ -61,7 +61,7 @@ if(isset($_POST['submit']))
     <form class="frm" action="sms.php" method="POST">
         <br/> </br>
         <?php
-          /*  $email=$_SESSION["id"];
+            $email=$_SESSION["id"];
             $sql="SELECT * FROM users WHERE email=\"$email\"";
             $result=$conn->query($sql)or trigger_error($conn->error);
             while ($row = $result->fetch_assoc()) {
@@ -69,7 +69,8 @@ if(isset($_POST['submit']))
                     $lname=$row['lname'];
                     $emails=$row['email'];
               }
-           */ ?>
+              mysqli_close($conn);
+           ?>
         Full Names: <?php echo $fname." ".$lname;?> 
         <br/> </br>
         Message: <textarea name="messages"style="width:240px;height:100px;border-radius:12px" ></textarea>

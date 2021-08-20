@@ -45,8 +45,8 @@ $dsply=mysqli_fetch_all($result,MYSQLI_ASSOC);
                     <li class="nav-item"><a href="additems.php" class="nav-link"> <i class="fa fa-upload" > </i>Add Items</a></li>
                     <li class="nav-item"><a href="stock.php" class="nav-link"> <i class="fa fa-database" > </i>Stock</a></li>
                     <li class="nav-item"><a href="#" class="nav-link"><i class="fa fa-check"></i> Sales</a></li>
-                    <li class="nav-item"><a href="#"class="nav-link "> <i class="fa fa-setting"></i> Settings</a></li>
-                    <li class="nav-item"><a href="#"class="nav-link "> <i class="fa fa-comment"></i> Messages</a></li>
+                    <li class="nav-item"><a href="#"class="nav-link "> <i class="	fa fa-cog"></i> Settings</a></li>
+                    <li class="nav-item"><a href="#"class="nav-link "> <i class="fa fa-comment"></i><b> Messages </b></a></li>
                     <li class="nav-item ml-3"><button type="button" href="login.php"><a href="login.php" >Logout</a></button></li>
                   </ul>
                 </div>
