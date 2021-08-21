@@ -71,7 +71,7 @@ if(isset($_POST['submit']))
               }
               mysqli_close($conn);
            ?>
-        Full Names: <?php echo $fname." ".$lname;?> 
+       <i class="fa fa-user"></i> <?php echo $fname." ".$lname;?> 
         <br/> </br>
         Message: <textarea name="messages"style="width:240px;height:100px;border-radius:12px" ></textarea>
         <input class="subm" style="height: 12%;width: 15%;" type="submit" name="submit" value="SEND"onclick="msg()"onmouseover="mousover1(this)" onmouseout="mousout1(this)" >

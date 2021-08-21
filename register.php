@@ -9,7 +9,8 @@ if(isset($_POST['submit']))
      $fname = $_POST['fname'];
      $lname=$_POST['lname'];
      $email = $_POST['email'];
-     $password=$_POST['password'];
+     $passwords=$_POST['password'];
+     $password = md5($passwords);
      $sex=$_POST['sex'];
      $age=$_POST['age'];
 

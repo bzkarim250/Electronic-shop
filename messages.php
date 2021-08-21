@@ -69,7 +69,7 @@ $dsply=mysqli_fetch_all($result,MYSQLI_ASSOC);
                             <th scope="col">Email</th>
                             <th scope="col">Messages</th>
                             <th scope="col">Received At</th>
-                            <th scope="col" colspan="3">Action</th>
+                            <th scope="col" colspan="2">Action</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -83,7 +83,6 @@ $dsply=mysqli_fetch_all($result,MYSQLI_ASSOC);
                               <td><?php echo htmlspecialchars($dsply['messages']); ?> </td>
                               <td><?php echo htmlspecialchars($dsply['received_at']); ?> </td>
                               <td><a href="view.php?id=<?php echo $dsply['id']; ?>">View</a></td>
-                              <td><a href="registered.php?id=<?php echo $dsply['id']; ?>">Update</a></td>
                               <td><a href="deleteuser.php?id=<?php echo $dsply['id']; ?>">Delete</a></td>
                             </tr>
                             <?php endforeach; ?>
